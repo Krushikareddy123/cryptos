@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #newcrds h1{
+            color: orangered;
+            font-size: 50px;
+            text-align: center;
+         }
+         
+    /* {
+            background-color: lightskyblue;
+            animation: changeColor 5s infinite;
+        }  */
+        #newcrds img{
+            background-color: white;
+            width: 150px;
+            height: 150px;
+            margin-left: 680px;
+
+        }
+        /* #newcrds h2{
+            margin-left: 80px;
+            color: #138787;
+        } */
+        #newcrds p{
+            margin-left: 30px;
+            color: red;
+            font-size: 20px;
+        }
+        #newcrds h2{
+            text-align: center;
+            color: blueviolet;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+        }
+        #newcrds h3{
+            text-align: center;
+            font-family: bold;
+            font-family: "Arial", sans-serif; 
+            font-style: italic; 
+            font-weight: bold; 
+            color: #5233ff; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        #newcrds button{
+            background-color: #af6b4c; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            text-align: center;
+            cursor: pointer; 
+            margin-left: 690px;
+        
+        }
+        @keyframes changeColor {
+            0% {
+                background-color: lightskyblue;
+            }
+            50% {
+                background-color: lightgreen;
+            }
+            100% {
+                background-color: lightskyblue;
+            }
+        }
+
+        
+        body {
+            animation: changeColor 5s infinite;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id = newcrds></div>
+    
+
+
+
+    <script>
+
+var crddata = localStorage.getItem("selectedCard");
+
+
+var newdata = JSON.parse(crddata);
+
+
+console.log(newdata);
+
+    var m1 = document.getElementById("newcrds");
+
+    var m11 = document.createElement("h1")
+    m11.innerText="COIN INFORMATION"
+    m1.appendChild(m11)
+
+    var m2 = document.createElement("img")
+    m2.src=newdata["image"]["small"];
+    m1.appendChild(m2)
+
+    var m3 = document.createElement("h2")
+    m3.innerText="NAME : "+newdata["name"]
+    m1.appendChild(m3)
+
+    var m4 = document.createElement("h2")
+    m4.innerText="SYMBOL : "+newdata["symbol"]
+    m1.appendChild(m4)
+
+    var mh = document.createElement("hr")
+    m1.appendChild(mh)
+
+
+
+    var dv = document.createElement("div")
+    m1.appendChild(dv)
+
+    var mm =document.createElement("h3")
+    mm.innerText="CURRENT PRICE"
+    dv.appendChild(mm)
+
+    var m5 = document.createElement("p")
+    m5.innerText="INR Price : "+newdata["market_data"]["current_price"]["inr"]
+    dv.appendChild(m5)
+
+    var m6 = document.createElement("p")
+    m6.innerText="USD Price : "+newdata["market_data"]["current_price"]["usd"]
+    dv.appendChild(m6)
+
+    var m7 = document.createElement("p")
+    m7.innerText="EUR Price : "+newdata["market_data"]["current_price"]["eur"]
+    dv.appendChild(m7)
+    
+    var m8 = document.createElement("hr")
+    m1.appendChild(m8)
+
+
+
+
+    var dv1 = document.createElement("div")
+    m1.appendChild(dv1)
+
+    var mm1 =document.createElement("h3")
+    mm1.innerText="MARKET CAP"
+    dv1.appendChild(mm1)
+
+    var mm2 = document.createElement("p")
+    mm2.innerText="INR Mark Cap : "+newdata["market_data"]["market_cap"]["inr"]
+    dv1.appendChild(mm2)
+
+    var mm3 = document.createElement("p")
+    mm3.innerText="USD Mark Cap : "+newdata["market_data"]["market_cap"]["usd"]
+    dv1.appendChild(mm3)
+
+    var mm4 = document.createElement("p")
+    mm4.innerText="EUR Mark Cap : "+newdata["market_data"]["market_cap"]["eur"]
+    dv1.appendChild(mm4)
+    
+    var mm5 = document.createElement("hr")
+    m1.appendChild(mm5)
+
+
+
+    var dv2 = document.createElement("div")
+    m1.appendChild(dv2)
+
+    var ls =document.createElement("h3")
+    ls.innerText="TOTAL VOLUME"
+    dv2.appendChild(ls)
+
+    var ls1 = document.createElement("p")
+    ls1.innerText="INR Total Volume : "+newdata["market_data"]["total_volume"]["inr"]
+    dv2.appendChild(ls1)
+
+    var ls2 = document.createElement("p")
+    ls2.innerText="USD Total Volume : "+newdata["market_data"]["total_volume"]["usd"]
+    dv2.appendChild(ls2)
+
+    var ls3 = document.createElement("p")
+    ls3.innerText="EUR Total Volume : "+newdata["market_data"]["total_volume"]["eur"]
+    dv2.appendChild(ls3)
+    
+    var ls4 = document.createElement("hr")
+    m1.appendChild(ls4)
+     var  lx = document.createElement("button")
+     lx.innerText="BACK"
+     lx.addEventListener("click",cb)
+       function cb(){
+
+        window.location.assign("./index.html");
+       }    
+       m1.appendChild(lx)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //  var coins11 = localStorage.getItem("selectedCard");
+    //     if (coins11) {
+           
+    //         var coinss= JSON.parse(coins11);
+           
+    //         var dataDisplay = document.getElementById("dataDisplay");
+    //         var html = "<h1>" + coinData.name + "</h1>";
+    //         html += "<p>Symbol: " + coinData.symbol + "</p>";
+    //         html += "<p>Price: $" + coinData.market_data.current_price.usd.toFixed(2) + "</p>";
+    //         html += "<p>Market Cap: $" + coinData.market_data.market_cap.usd.toLocaleString() + "</p>";
+    //         dataDisplay.innerHTML = html;
+    //     }
+    </script>
+</body>
+</html>
